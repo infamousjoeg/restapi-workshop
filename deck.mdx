@@ -1,52 +1,112 @@
+import { Notes, Head, Appear } from "mdx-deck";
+import { CodeSurfer, CodeSurferColumns, Step } from "code-surfer";
 import {
-  CodeSurfer,
-  CodeSurferColumns,
-  Step,
-} from "code-surfer";
-import { github, vsDark } from "@code-surfer/themes";
+  nightOwl as secondary,
+  vsDark as primary
+} from "@code-surfer/themes";
 
-export const theme = vsDark;
+export const theme = primary;
+export const city = "Nashville";
+export const presenter = "Joe Garcia";
+export const title = "DevOps Security Engineer";
+export const presentationBaseURL = "https://cyberark.joegarcia.dev"
 
-# Hello 👋
+<Head>
+  <title>CyberArk REST API Workshop - {city}</title>
+</Head>
 
-You are using [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](https://codesurfer.pomb.us)
+# REST API Workshop
+
+<h2>{city}</h2>
+
+Presented by [CyberArk](https://cyberark.com)
+
+---
+
+# Hello 👋🏻
+
+<h2>I am {presenter}</h2>
+
+<h3>{title} for <a href="https://cyberark.com">CyberArk</a></h3>
+
+---
+
+# Agenda 🕙
+
+## Hour 1
+
+<ul>
+  <Appear>
+    <li>You know everything up until now</li>
+    <li>Go over agenda (now)</li>
+    <li>v9 to v10 API Changes</li>
+    <li>Exploring Support Tools</li>
+    <li>Both CyberArk & community</li>
+  </Appear>
+</ul>
+
+---
+
+# Agenda 🕙
+
+## Hour 2
+
+<ul>
+  <Appear>
+    <li>Postman Deep Dive</li>
+    <li>psPAS Deep Dive</li>
+  </Appear>
+</ul>
+
+---
+
+# Agenda 🕙
+
+## LUNCH! (30 minutes)
+
+---
+
+# Agenda 🕙
+
+## Hour 3
+
+<ul>
+  <Appear>
+    <li>SkyTap Environment Overview</li>
+    <li>Create Function for Role-Based Security Groups</li>
+  </Appear>
+</ul>
+
+---
+
+# Agenda 🕙
+
+## Hour 4
+
+<ul>
+  <Appear>
+    <li>Create Safe & Safe Members Script (CyberArk Safe Factory)</li>
+    <li>Q&A Session</li>
+  </Appear>
+</ul>
+
+---
+
+# v9 -> v10 API Changes
+
+<ul>
+  <Appear>
+    <li>Change from <b>/WebServices/</b> to <b>/api/</b> URI</li>
+    <li>PVWA UI in v10 <i>uses</i> the same REST API exposed to customers</li>
+    <li>As new features appear in PVWA, they will be available in our REST API</li>
+    <li>No... I don't know when we can Move Accounts via REST API 🙁</li>
+    <li>I also don't know when we'll be able to automate linked accounts like Logon & Reconcile 😫</li>
+  </Appear>
+</ul>
 
 ---
 
 <CodeSurfer>
-
-```js title="This is a title" subtitle="and this a subtitle"
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
-```
 
 ```js
 function lorem(ipsum, dolor = 1) {
@@ -98,7 +158,7 @@ function incididunt(ipsum, ut = 1) {
 
 ---
 
-<CodeSurferColumns themes={[vsDark, github]}>
+<CodeSurferColumns themes={[primary, secondary]}>
 
 <Step>
 
