@@ -1,3 +1,4 @@
+<!-- DO NOT MODIFY BELOW -->
 import { Notes, Head, Appear } from "mdx-deck";
 import { CodeSurfer, CodeSurferColumns, Step } from "code-surfer";
 import {
@@ -5,11 +6,15 @@ import {
   vsDark as primary
 } from "@code-surfer/themes";
 
+<!-- Default theme -->
 export const theme = primary;
+
+<!-- DO NOT MODIFY ABOVE -->
+
+<!-- CONFIG VARIABLES -->
 export const city = "Nashville";
 export const presenter = "Joe Garcia";
 export const title = "DevOps Security Engineer";
-export const presentationBaseURL = "https://cyberark.joegarcia.dev"
 
 <Head>
   <title>CyberArk REST API Workshop - {city}</title>
@@ -33,14 +38,14 @@ Presented by [CyberArk](https://cyberark.com)
 
 # Agenda 🕙
 
-## Hour 1
+## Hour 1️⃣
 
 <ul>
   <Appear>
     <li>You know everything up until now</li>
-    <li>Go over agenda (now)</li>
-    <li>v9 to v10 API Changes</li>
-    <li>Exploring Support Tools</li>
+    <li>Go over agenda - which is happening now</li>
+    <li>v9 to v10 API changes</li>
+    <li>Explore available support tools</li>
     <li>Both CyberArk & community</li>
   </Appear>
 </ul>
@@ -49,7 +54,7 @@ Presented by [CyberArk](https://cyberark.com)
 
 # Agenda 🕙
 
-## Hour 2
+## Hour 2️⃣
 
 <ul>
   <Appear>
@@ -64,11 +69,13 @@ Presented by [CyberArk](https://cyberark.com)
 
 ## LUNCH! (30 minutes)
 
+# 🍔
+
 ---
 
 # Agenda 🕙
 
-## Hour 3
+## Hour 3️⃣
 
 <ul>
   <Appear>
@@ -81,11 +88,11 @@ Presented by [CyberArk](https://cyberark.com)
 
 # Agenda 🕙
 
-## Hour 4
+## Hour 4️⃣
 
 <ul>
   <Appear>
-    <li>Create Safe & Safe Members Script (CyberArk Safe Factory)</li>
+    <li>Create Safe & Safe Members Script <i>(CyberArk Safe Factory)</i></li>
     <li>Q&A Session</li>
   </Appear>
 </ul>
@@ -103,6 +110,67 @@ Presented by [CyberArk](https://cyberark.com)
     <li>I also don't know when we'll be able to automate linked accounts like Logon & Reconcile 😫</li>
   </Appear>
 </ul>
+
+---
+
+# Exploring Support Tools 🛠
+
+## CyberArk Supported Tools
+
+---
+
+# epv-api-scripts
+
+<ul>
+  <Appear>
+    <li><h2>Contains CyberArk Supported Examples</h2></li>
+    <li><h2>Account Onboarding Utility</h2></li>
+    <li><h2>Automatic Onboarding Rules</h2></li>
+    <li><h2>PSM, Platforms, Security Events, and more!</h2></li>
+  </Appear>
+</ul>
+
+---
+
+# epv-api-scripts
+
+[Go to https://github.com/cyberark/epv-api-scripts](https://github.com/cyberark/epv-api-scripts)
+
+---
+
+# Account Onboarding Utility
+
+<ul>
+  <Appear>
+    <li>Supported by CyberArk R&D</li>
+    <li>Supports v9.8 and above of PVWA</li>
+    <li>Supports basic account and safe creation, much like PUU</li>
+  </Appear>
+</ul>
+
+---
+
+<CodeSurfer>
+
+```powershell title="Create Command"
+Accounts_Onboard_Utility.ps1 `
+  -PVWAURL https://components.cyberarkdemo.com `
+  -Create `
+  -AuthType ldap `
+  -TemplateSafe WinLocalTemplate `
+  -CsvPath "${env:userprofile}\Documents\cyberark-import.csv"
+```
+
+```powershell title="Update Command"
+Accounts_Onboard_Utility.ps1 `
+  -PVWAURL https://components.cyberarkdemo.com `
+  -Update `
+  -AuthType ldap `
+  -TemplateSafe WinLocalTemplate `
+  -CsvPath "${env:userprofile}\Documents\cyberark-import.csv"
+```
+
+</CodeSurfer>
 
 ---
 
