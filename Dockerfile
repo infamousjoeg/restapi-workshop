@@ -7,6 +7,6 @@ USER node
 COPY package*.json ./
 RUN npm install && npm audit fix
 
-EXPOSE 80
+EXPOSE 8000
 
 CMD npm start
