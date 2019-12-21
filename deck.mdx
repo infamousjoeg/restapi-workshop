@@ -275,10 +275,22 @@ Update-Module psPAS
 
 <CodeSurfer>
 
-```powershell 3 title="Token-less Session Authorization" subtitle="After successful authentication, token is held in session"
+```powershell title="Token-less Session Authorization" subtitle="After successful authentication, token is held in session"
 # Since token is stored in the session, no need to save
 # the response in a variable for reference later.
 New-PASSession -BaseURI https://components.cyberarkdemo.com -Type ldap -Credentials $(Get-Credentials)
+```
+
+```diff 3 title="Parameters" subtitle="BaseURI, Type, and Credentials are required"
+
+```
+
+```diff 3[72:103] title="PSCredential Object" subtitle="psPAS requires a PSCredential Object for security"
+
+```
+
+```diff 3[85:103] title="PSCredential Object" subtitle="This will prompt the user for their username & password"
+
 ```
 
 </CodeSurfer>
