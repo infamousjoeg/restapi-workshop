@@ -245,6 +245,8 @@ _Shown via Live Demo_
 
 ---
 
+<CodeSurfer>
+
 ```powershell title="How to install psPAS" subtitle="psPAS is available on the PowerShell Gallery"
 Install-Module psPAS
 ```
@@ -252,6 +254,8 @@ Install-Module psPAS
 ```powershell title="How to update psPAS"
 Update-Module psPAS
 ```
+
+</CodeSurfer>
 
 ---
 
@@ -269,11 +273,15 @@ Update-Module psPAS
 
 ---
 
-```powershell title="Token-less Session Authorization" subtitle="After successful authentication, token is held in session"
+<CodeSurfer>
+
+```powershell 3 title="Token-less Session Authorization" subtitle="After successful authentication, token is held in session"
 # Since token is stored in the session, no need to save
 # the response in a variable for reference later.
 New-PASSession -BaseURI https://components.cyberarkdemo.com -Type ldap -Credentials $(Get-Credentials)
 ```
+
+</CodeSurfer>
 
 ---
 
