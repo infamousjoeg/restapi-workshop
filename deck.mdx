@@ -14,7 +14,7 @@ export const theme = primary;
 <!-- DO NOT MODIFY ABOVE -->
 
 <!-- CONFIG VARIABLES -->
-export const city = "Nashville";
+export const city = "World Wide Web";
 export const presenter = "Joe Garcia";
 export const title = "DevOps Security Engineer";
 
@@ -155,7 +155,7 @@ Presented by [CyberArk](https://cyberark.com)
 
 <CodeSurfer>
 
-```powershell title="Create Command"
+```powershell title="Create Command" subtitle="Creates safes and accounts"
 Accounts_Onboard_Utility.ps1 `
   # PVWA Base URL
   -PVWAURL https://components.cyberarkdemo.com `
@@ -169,7 +169,7 @@ Accounts_Onboard_Utility.ps1 `
   -CsvPath "${env:userprofile}\Documents\cyberark-import.csv"
 ```
 
-```powershell title="Update Command"
+```powershell title="Update Command" subtitle="Updates accounts or creates safes and accounts"
 Accounts_Onboard_Utility.ps1 `
   # PVWA Base URL
   -PVWAURL https://components.cyberarkdemo.com `
@@ -203,6 +203,77 @@ Accounts_Onboard_Utility.ps1 `
     <li>Only shows relevant API endpoints for the PVWA version</li>
   </Appear>
 </ul>
+
+---
+
+# Exploring Support Tools 🛠
+
+## Community Contributed Tools
+
+---
+
+# CyberArk Automation Greatest Hits
+
+[https://cybr.rocks/greatesthits](https://cybr.rocks/greatesthits)
+
+---
+
+# Postman Documentation & Collection
+
+## Documentation available publicly
+
+[https://cybr.rocks/RESTAPI](https://cybr.rocks/RESTAPI)
+
+## Available within Postman App as Collection
+
+_Shown via Live Demo_
+
+---
+
+# psPAS
+
+<ul>
+  <Appear>
+    <li><h2>What is it?</h2></li>
+      <ul>
+        <li>PowerShell Module</li>
+        <li>Maintained by psPete</li>
+        <li>Creates easy cmdlets to deal with CyberArk's API</li>
+      </ul>
+  </Appear>
+</ul>
+
+---
+
+```powershell title="How to install psPAS" subtitle="psPAS is available on the PowerShell Gallery"
+Install-Module psPAS
+```
+
+```powershell title="How to update psPAS"
+Update-Module psPAS
+```
+
+---
+
+# psPAS
+
+## Features
+
+<ul>
+  <Appear>
+    <li>Token-less session authorization</li>
+    <li>Supports push and challenge/response MFA</li>
+    <li>Supports piping to simplify commands</li>
+  </Appear>
+</ul>
+
+---
+
+```powershell title="Token-less Session Authorization" subtitle="After successful authentication, token is held in session"
+# Since token is stored in the session, no need to save
+# the response in a variable for reference later.
+New-PASSession -BaseURI https://components.cyberarkdemo.com -Type ldap -Credentials $(Get-Credentials)
+```
 
 ---
 
