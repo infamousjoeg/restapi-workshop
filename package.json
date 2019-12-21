@@ -10,5 +10,6 @@
     "code-surfer": "3.0.0",
     "mdx-deck": "3.0.13"
   },
-  "name": "restapi-workshop"
+  "name": "restapi-workshop",
+  "dependencies": {}
 }

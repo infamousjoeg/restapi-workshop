@@ -5,6 +5,7 @@ import {
   nightOwl as secondary,
   vsDark as primary
 } from "@code-surfer/themes";
+
 import "prismjs/components/prism-powershell";
 
 <!-- Default theme -->
@@ -155,23 +156,52 @@ Presented by [CyberArk](https://cyberark.com)
 
 ```powershell title="Create Command"
 Accounts_Onboard_Utility.ps1 `
+  # PVWA Base URL
   -PVWAURL https://components.cyberarkdemo.com `
+  # Method
   -Create `
+  # Authentication Type: cyberark, ldap, windows, saml, radius (all methods)
   -AuthType ldap `
+  # Safe name to copy permissions from when creating a new safe (optional)
   -TemplateSafe WinLocalTemplate `
+  # Path to the CSV containing account metadata
   -CsvPath "${env:userprofile}\Documents\cyberark-import.csv"
 ```
 
 ```powershell title="Update Command"
 Accounts_Onboard_Utility.ps1 `
+  # PVWA Base URL
   -PVWAURL https://components.cyberarkdemo.com `
+  # Change the method to Update and everything can stay the same
   -Update `
+  # Authentication Type: cyberark, ldap, windows, saml, radius (all methods)
   -AuthType ldap `
+  # Safe name to copy permissions from when creating a new safe (optional)
   -TemplateSafe WinLocalTemplate `
+  # Path to the CSV containing account metadata
   -CsvPath "${env:userprofile}\Documents\cyberark-import.csv"
 ```
 
 </CodeSurfer>
+
+---
+
+# CyberArk Online Documentation
+
+[https://docs.cyberark.com](https://docs.cyberark.com)
+
+---
+
+# Swagger UI
+
+<ul>
+  <Appear>
+    <li>Accessed at <u>https://pvwa.yourdomain.com/PasswordVault/swagger</u></li>
+    <li>Similar to Postman Documentation & Collection</li>
+    <li>Built into Password Vault Web Access (PVWA)</li>
+    <li>Only shows relevant API endpoints for the PVWA version</li>
+  </Appear>
+</ul>
 
 ---
 
