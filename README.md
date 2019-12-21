@@ -1,4 +1,4 @@
-# MDX Deck + Code Surfer template
+# REST API Workshop
 
 This project was generated with the `npm init code-surfer-deck` command.
 
@@ -11,6 +11,18 @@ npm start
 ```
 
 Edit the [`deck.mdx`](deck.mdx) file to get started.
+
+## Publically Hosting
+
+```sh
+brew cask install now
+```
+
+From within the root dir, run:
+
+```sh
+now
+```
 
 ## Exporting
 
