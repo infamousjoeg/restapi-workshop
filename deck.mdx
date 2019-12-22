@@ -266,7 +266,7 @@ Update-Module psPAS
 <ul>
   <Appear>
     <li>Token-less session authorization</li>
-    <li>Supports push and challenge/response MFA</li>
+    <li>Supports push, append & challenge/response MFA</li>
     <li>Supports piping to simplify commands</li>
   </Appear>
 </ul>
@@ -298,6 +298,70 @@ New-PASSession -BaseURI https://components.cyberarkdemo.com -Type ldap -Credenti
 ---
 
 <CodeSurfer>
+
+```powershell title="MFA Support" subtitle="Push Mode"
+New-PASSession -BaseURI https://components.cyberarkdemo.com -Type radius -Credentials $(Get-Credentials)
+```
+
+```powershell 1[74:101] title="MFA Support" subtitle="Append Mode"
+New-PASSession -BaseURI https://components.cyberarkdemo.com -Type radius -OTPMode Append -OTP 123456 -Credentials $(Get-Credentials)
+```
+
+```powershell 1[74:104] title="MFA Support" subtitle="Challenge/Response Mode"
+New-PASSession -BaseURI https://components.cyberarkdemo.com -Type radius -OTPMode Challenge -OTP 123456 -Credentials $(Get-Credentials)
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```powershell title="Piping Support for Advanced Users" subtitle="List Safe Members by Specific Permission"
+Get-PASSafe -query D-Nix | Get-PASSafeMember | Where-Object { $_.Permissions -contains 'Add' }
+```
+
+```diff 1[1:25] title="Piping Support for Advanced Users" subtitle="First: Get all safes matching our query"
+
+```
+
+```diff 1[28:45] title="Piping Support for Advanced Users" subtitle="Second: Get all Safe Members for all safes returned"
+
+```
+
+```diff 1[48:95] title="Piping Support for Advanced Users" subtitle="Finally: Return only Safe Members having any 'Add' permission"
+
+```
+
+```diff 1[63:65] title="Piping Support for Advanced Users" subtitle="This references our object being piped"
+
+```
+
+```powershell title="Piping Support for Advanced Users" subtitle="List Safes Username is NOT a Member Of"
+Get-PASSafe | ForEach-Object { if ($(Get-PASSafeMember -SafeName $_.SafeName) -notcontains "CyberArk_Vault_Admins") { Write-Output $_.SafeName } }
+```
+
+```diff 1[1:12] title="Piping Support for Advanced Users" subtitle="First: Get all safes"
+
+```
+
+```diff 1[15:31] title="Piping Support for Advanced Users" subtitle="For each object returned..."
+
+```
+
+```diff 1[32:116] title="Piping Support for Advanced Users" subtitle="... if CyberArk_Vault_Admins is not a member of the safe..."
+
+```
+
+```diff 1[117:145] title="Piping Support for Advanced Users" subtitle="Write the safe name to output for our audit report"
+
+```
+
+</CodeSurfer>
+
+---
+
+<!-- {/* <CodeSurfer>
 
 ```js
 function lorem(ipsum, dolor = 1) {
@@ -400,4 +464,4 @@ const sed = (eiusmod, tempor, incididunt) => {
 ---
 
 docs:  
-[codesurfer.pomb.us](https://codesurfer.pomb.us)
+[codesurfer.pomb.us](https://codesurfer.pomb.us) */} -->
