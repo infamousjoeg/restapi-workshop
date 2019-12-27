@@ -126,10 +126,10 @@ Presented by [CyberArk](https://cyberark.com)
 
 <ul>
   <Appear>
-    <li><h2>Contains CyberArk Supported Examples</h2></li>
-    <li><h2>Account Onboarding Utility</h2></li>
-    <li><h2>Automatic Onboarding Rules</h2></li>
-    <li><h2>PSM, Platforms, Security Events, and more!</h2></li>
+    <li>Contains CyberArk Supported Examples</li>
+    <li>Account Onboarding Utility</li>
+    <li>Automatic Onboarding Rules</li>
+    <li>PSM, Platforms, Security Events, and more!</li>
   </Appear>
 </ul>
 
@@ -212,19 +212,17 @@ Accounts_Onboard_Utility.ps1 `
 
 ---
 
-# CyberArk Automation Greatest Hits
+## CyberArk Automation Greatest Hits
 
 [https://cybr.rocks/greatesthits](https://cybr.rocks/greatesthits)
 
 ---
 
-# Postman Documentation & Collection
+# Postman
 
-## Documentation available publicly
+Documentation available online at [https://cybr.rocks/RESTAPI](https://cybr.rocks/RESTAPI)
 
-[https://cybr.rocks/RESTAPI](https://cybr.rocks/RESTAPI)
-
-## Available within Postman App as Collection
+Collection available for use in Postman app
 
 _Shown via Live Demo_
 
@@ -235,12 +233,14 @@ _Shown via Live Demo_
 <ul>
   <Appear>
     <li><h2>What is it?</h2></li>
-      <ul>
-        <li>PowerShell Module</li>
-        <li>Maintained by psPete</li>
-        <li>Creates easy cmdlets to deal with CyberArk's API</li>
-      </ul>
   </Appear>
+      <ul>
+        <Appear>
+          <li>PowerShell Module</li>
+          <li>Maintained by psPete</li>
+          <li>Creates easy cmdlets to deal with CyberArk's API</li>
+        </Appear>
+      </ul>
 </ul>
 
 ---
@@ -251,7 +251,7 @@ _Shown via Live Demo_
 Install-Module psPAS
 ```
 
-```powershell title="How to update psPAS"
+```powershell title="How to update psPAS" subtitle="Updating is as easy as installing"
 Update-Module psPAS
 ```
 
@@ -270,6 +270,14 @@ Update-Module psPAS
     <li>Supports piping to simplify commands</li>
   </Appear>
 </ul>
+
+---
+
+# psPAS
+
+## Example One-Liners & Scripts
+
+This will be covered later during our _psPAS Deep Dive_.
 
 ---
 
@@ -303,12 +311,14 @@ New-PASSession -BaseURI https://components.cyberarkdemo.com -Type ldap -Credenti
 New-PASSession -BaseURI https://components.cyberarkdemo.com -Type radius -Credentials $(Get-Credentials)
 ```
 
-```powershell 1[74:101] title="MFA Support" subtitle="Append Mode"
-New-PASSession -BaseURI https://components.cyberarkdemo.com -Type radius -OTPMode Append -OTP 123456 -Credentials $(Get-Credentials)
+```powershell 2 title="MFA Support" subtitle="Append Mode"
+New-PASSession -BaseURI https://components.cyberarkdemo.com -Type radius -Credentials $(Get-Credentials) `
+    -OTPMode Append -OTP 123456
 ```
 
-```powershell 1[74:104] title="MFA Support" subtitle="Challenge/Response Mode"
-New-PASSession -BaseURI https://components.cyberarkdemo.com -Type radius -OTPMode Challenge -OTP 123456 -Credentials $(Get-Credentials)
+```powershell 2 title="MFA Support" subtitle="Challenge/Response Mode"
+New-PASSession -BaseURI https://components.cyberarkdemo.com -Type radius -Credentials $(Get-Credentials) `
+    -OTPMode Challenge -OTP 123456
 ```
 
 </CodeSurfer>
@@ -337,8 +347,18 @@ Get-PASSafe -query D-Nix | Get-PASSafeMember | Where-Object { $_.Permissions -co
 
 ```
 
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
 ```powershell title="Piping Support for Advanced Users" subtitle="List Safes Username is NOT a Member Of"
-Get-PASSafe | ForEach-Object { if ($(Get-PASSafeMember -SafeName $_.SafeName) -notcontains "CyberArk_Vault_Admins") { Write-Output $_.SafeName } }
+Get-PASSafe | ForEach-Object { 
+    if ($(Get-PASSafeMember -SafeName $_.SafeName) -notcontains "CyberArk_Vault_Admins") {
+        Write-Output $_.SafeName
+    }
+}
 ```
 
 ```diff 1[1:12] title="Piping Support for Advanced Users" subtitle="First: Get all safes"
@@ -349,11 +369,11 @@ Get-PASSafe | ForEach-Object { if ($(Get-PASSafeMember -SafeName $_.SafeName) -n
 
 ```
 
-```diff 1[32:116] title="Piping Support for Advanced Users" subtitle="... if CyberArk_Vault_Admins is not a member of the safe..."
+```diff 2 title="Piping Support for Advanced Users" subtitle="... if CyberArk_Vault_Admins is not a member of the safe..."
 
 ```
 
-```diff 1[117:145] title="Piping Support for Advanced Users" subtitle="Write the safe name to output for our audit report"
+```diff 3 title="Piping Support for Advanced Users" subtitle="Write the safe name to output for our audit report"
 
 ```
 
