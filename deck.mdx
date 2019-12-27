@@ -6,10 +6,14 @@ import {
   vsDark as primary
 } from "@code-surfer/themes";
 
+import {
+  default as cyberark
+} from "./src/themes/cyberark.js";
+
 import "prismjs/components/prism-powershell";
 
 <!-- Default theme -->
-export const theme = primary;
+export const theme = cyberark;
 
 <!-- DO NOT MODIFY ABOVE -->
 
@@ -21,6 +25,8 @@ export const title = "DevOps Security Engineer";
 <Head>
   <title>CyberArk REST API Workshop - {city}</title>
   <link rel="shortcut icon" href="./src/icons/favicon.ico" type="image/ico" />
+  <link href="./src/fonts/stylesheet.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro|Source+Serif+Pro&display=swap" rel="stylesheet" />
 </Head>
 
 # REST API Workshop
@@ -167,6 +173,10 @@ Accounts_Onboard_Utility.ps1 `
   -TemplateSafe WinLocalTemplate `
   # Path to the CSV containing account metadata
   -CsvPath "${env:userprofile}\Documents\cyberark-import.csv"
+```
+
+```diff 4:5 title="Create Command" subtitle="This is the parameter to set to create"
+
 ```
 
 ```powershell title="Update Command" subtitle="Updates accounts or creates safes and accounts"
