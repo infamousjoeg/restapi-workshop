@@ -11,5 +11,7 @@
     "mdx-deck": "3.0.13"
   },
   "name": "restapi-workshop",
-  "dependencies": {}
+  "dependencies": {
+    "prismjs": "file:src/themes/prismjs"
+  }
 }
