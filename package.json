@@ -10,8 +10,5 @@
     "code-surfer": "3.0.0",
     "mdx-deck": "3.0.13"
   },
-  "name": "restapi-workshop",
-  "dependencies": {
-    "prismjs": "file:src/themes/prismjs"
-  }
+  "name": "restapi-workshop"
 }
