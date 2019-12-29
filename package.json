@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "start": "mdx-deck deck.mdx",
     "build": "mdx-deck build deck.mdx",
@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "code-surfer": "3.0.0",
-    "mdx-deck": "3.0.13"
+    "mdx-deck": "3.0.13",
+    "prismjs": "git+https://github.com/infamousjoeg/prism.git"
   },
   "name": "restapi-workshop"
 }
