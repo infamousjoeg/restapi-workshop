@@ -265,6 +265,10 @@ Install-Module psPAS
 Update-Module psPAS
 ```
 
+```powershell title="How to use psPAS" subtitle="Start your script with this to use psPAS in it"
+Import-Module psPAS
+```
+
 </CodeSurfer>
 
 ---
@@ -288,6 +292,109 @@ Update-Module psPAS
 ## Example One-Liners & Scripts
 
 This will be covered later during our _psPAS Deep Dive_.
+
+---
+
+# CredentialRetriever
+
+## Functions
+
+<ul>
+  <Appear>
+    <li>Get-CCPCredential</li>
+    <li>Get-AIMCredential</li>
+  </Appear>
+</ul>
+
+---
+
+<CodeSurfer>
+
+```powershell title="CredentialRetriever with CCP" subtitle="Simple function with typical metadata"
+Get-CCPCredential -AppID DemoApp -Safe DemoSafe -UserName DemoUser -URL https://components.cyberarkdemo.com
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```powershell 1[49:97] title="CredentialRetriever with CCP" subtitle="You can also use ObjectName like usual"
+Get-CCPCredential -AppID DemoApp -Safe DemoSafe -ObjectName PlatformId-DemoSafe-Address-DemoUser -URL https://components.cyberarkdemo.com
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```powershell title="CredentialRetriever with CCP" subtitle="Script Example"
+Import-Module CredentialRetriever
+
+do {
+    $response = Get-CCPCredential -AppID DemoApp -Safe DemoSafe -UserName DemoUser -URL https://components.cyberarkdemo.com
+} until ( $response.PasswordChangeInProcess -eq $false )
+
+Write-Output $response.Content  # Password
+Write-Output $response.UserName # Username
+Write-Output $response.Address  # Address
+```
+
+```diff 1 title="CredentialRetriever with CCP" subtitle="First, we need to import the module into our script"
+
+```
+
+```diff 3:5 title="CredentialRetriever with CCP" subtitle="Here we use a do...until loop to ensure the password is not changing"
+
+```
+
+```diff 4 title="CredentialRetriever with CCP" subtitle="Our response from CCP will be stored in the $response var"
+
+```
+
+```diff 5[11:55] title="CredentialRetriever with CCP" subtitle="If the password is not changing, we can continue..."
+
+```
+
+```diff 7:9 title="CredentialRetriever with CCP" subtitle="...and the rest of the script will complete."
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```powershell title="CredentialRetriever with Credential Provider" subtitle="Simple function with minimal config"
+Set-AIMConfiguration -ClientPath "C:\Program Files (x86)\CyberArk\ApplicationPasswordSdk\CLIPasswordSDK.exe"
+
+Get-AIMCredential -AppID DemoApp -Safe DemoSafe -UserName DemoUser -RequiredProps Username,Address
+```
+
+```diff 1 title="CredentialRetriever with Credential Provider" subtitle="First, the path to CLIPasswordSDK.exe should be set"
+
+```
+
+```diff 3 title="CredentialRetriever with Credential Provider" subtitle="Then, the credential can be retrieved using the function"
+
+```
+
+```diff 3[68:99] title="CredentialRetriever with Credential Provider" subtitle="RequiredProps will only return the properties listed here"
+
+```
+
+```diff 3[83:99] title="CredentialRetriever with Credential Provider" subtitle="Here, we're just asking for Username, Address, and Content (which is default)"
+
+```
+
+</CodeSurfer>
+
+---
+
+# psPAS Deep Dive
 
 ---
 
