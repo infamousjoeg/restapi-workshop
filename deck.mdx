@@ -26,6 +26,7 @@ export const title = "DevOps Security Engineer";
   <title>CyberArk REST API Workshop - {city}</title>
   <link rel="shortcut icon" href="./src/icons/favicon.ico" type="image/ico" />
   <link href="./src/fonts/stylesheet.css" rel="stylesheet" />
+  <link href="./src/themes/cyberark.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro|Source+Serif+Pro&display=swap" rel="stylesheet" />
 </Head>
 
@@ -101,7 +102,8 @@ Presented by [CyberArk](https://cyberark.com)
 
 <ul>
   <Appear>
-    <li>Create Safe & Safe Members Script <i>(CyberArk Safe Factory)</i></li>
+    <li>Create Safe & Safe Members Script<br />
+      <i>(CyberArk Safe Factory)</i></li>
     <li>Q&A Session</li>
   </Appear>
 </ul>
@@ -110,15 +112,17 @@ Presented by [CyberArk](https://cyberark.com)
 
 # v9 -> v10 API Changes
 
-<ul>
-  <Appear>
-    <li>Change from <b>/WebServices/</b> to <b>/api/</b> URI</li>
-    <li>PVWA UI in v10 <i>uses</i> the same REST API exposed to customers</li>
-    <li>As new features appear in PVWA, they will be available in our REST API</li>
-    <li>No... I don't know when we can Move Accounts via REST API 🙁</li>
-    <li>I also don't know when we'll be able to automate linked accounts like Logon & Reconcile 😫</li>
-  </Appear>
-</ul>
+<div style="padding-left: 50px; padding-right: 50px;">
+  <ul>
+    <Appear>
+      <li>Change from <b>/WebServices/</b> to <b>/api/</b> URI</li>
+      <li>PVWA UI in v10 <i>uses</i> the same REST API exposed to customers</li>
+      <li>As new features appear in PVWA, they will be available in our REST API</li>
+      <li>No... I don't know when we can Move Accounts via REST API 🙁</li>
+      <li>I also don't know when we'll be able to automate linked accounts like Logon & Reconcile 😫</li>
+    </Appear>
+  </ul>
+</div>
 
 ---
 
@@ -197,7 +201,7 @@ Accounts_Onboard_Utility.ps1 `
 
 ---
 
-# CyberArk Online Documentation
+# Online Documentation 📄
 
 [https://docs.cyberark.com](https://docs.cyberark.com)
 
@@ -207,8 +211,8 @@ Accounts_Onboard_Utility.ps1 `
 
 <ul>
   <Appear>
-    <li>Accessed at <u>https://pvwa.yourdomain.com/PasswordVault/swagger</u></li>
-    <li>Similar to Postman Documentation & Collection</li>
+    <li>Accessed at <u>/PasswordVault/swagger</u></li>
+    <li>Similar to Postman Online Docs & Collection</li>
     <li>Built into Password Vault Web Access (PVWA)</li>
     <li>Only shows relevant API endpoints for the PVWA version</li>
   </Appear>
@@ -230,7 +234,7 @@ Accounts_Onboard_Utility.ps1 `
 
 # Postman
 
-Documentation available online at [https://cybr.rocks/RESTAPI](https://cybr.rocks/RESTAPI)
+Docs available online at [https://cybr.rocks/RESTAPI](https://cybr.rocks/RESTAPI)
 
 Collection available for use in Postman app
 
